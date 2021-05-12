@@ -1,0 +1,23 @@
+/bin/sudo /bin/su - app  用这个账号登录服务器  【已被禁止】
+top
+jmap   -histo:live  31635| more
+jmap   -histo:live  28890| more
+jmap   -histo:live  28890| gerp Consult
+快速查找定位过程: 关键字 -> 关键字+线程名称+时间范围精确查询调用链过程   时间范围查询:grep '2021-04-29 18:[1-2][0-9]'
+	#查询单个线程某个时间段内的日志
+	cat /data/logs/xyy-saas-yzh-ms/xyy-saas-yzh-ms.20210430.log | grep 'pool-16-thread-8' |grep '2021-04-30 11:4[7-8]'
+	cat /data/logs/xyy-saas-yzh-ms/xyy-saas-yzh-ms.20210430.log | grep 'pool-16-thread-8' |grep '2021-04-30 11:42'
+快速查找  grep -rn "Long polling failed" ./ 2>&1 | grep -v "grep: "  |  grep -rn "Long polling failed" * 2>&1 | grep -v "grep: "
+grep -rn "The target server failed to respond" /data/logs  2>&1 | grep -v "grep: "
+grep -rn "Long polling failed" /data/logs 2>&1 | grep -v "grep: "
+grep -rn "FinishServiceBeanExprot" /data  2>&1 | grep -v "grep: "
+grep -rn "checkCommandAndTask任务执行完成" /data  2>&1 | grep -v "grep: "
+grep -rn "http-nio-8085-exec-3" /  2>&1 | grep -v "grep: "
+grep -rn "/api/user/bindAccount/unbind" /  2>&1 | grep -v "grep: "
+grep -rn "warehouse/erp/queryProduct" /data  2>&1 | grep -v "grep: " | grep '阿莫西林胶囊' |grep '\\\\\\"busCustomerId\\\\\\":\\\\\\"10189\\\\\\"'
+
+grep -rn "warehouse/erp/queryProduct" /data  2>&1 | grep -v "grep: " | grep '阿莫西林胶囊' |grep '2021-04-29 18:[1-2][0-9]'
+
+find / -name 'xyy-saas-yzh-ms.*.log'  2>&1 | grep -v "Permission denied"
+find / -name 'tomcat_server.conf'  2>&1 | grep -v "Permission denied"
+find / -name '*.log'  2>&1 | grep -v "Permission denied"
